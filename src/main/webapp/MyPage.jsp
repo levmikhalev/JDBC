@@ -12,16 +12,16 @@
         <tr>
             <td><p align="right">Имя:</p></td>
             <td><input type="text" name="name"></td>
-            <td><input type="submit" value="отправить"></td>
         </tr>
         <tr>
             <td><p align="right">Возраст:</p></td>
             <td><input type="text" name="age"></td>
-            <td><input type="submit" value="отправить"></td>
         </tr>
         <tr>
             <td><p align="right">E-mail:</p></td>
             <td><input type="text" name="email"></td>
+        </tr>
+        <tr>
             <td><input type="submit" value="отправить"></td>
         </tr>
     </form>
