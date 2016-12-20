@@ -10,7 +10,7 @@ Java, Maven, Tomcat, JDBC, MySQL, Servlet, JSP, HTML, CSS, Bootstrap.
 # En
 Hello.
 
-This web-application, it's designed to work with MySQL database, and I'm still working on it, yep.
+This is a web-application, it's designed to work with MySQL database, and I'm still working on it, yep.
 
 List of used technologies:
 Java, Maven, Tomcat, JDBC, MySQL, Servlet, JSP, HTML, CSS, Bootstrap.
