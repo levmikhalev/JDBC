@@ -9,6 +9,7 @@ public class DataBaseConnection {
     private static final String USER = "root";
     private static final String PASSWORD = "root";
 
+    DataBaseConnection dbc = new DataBaseConnection();
     Connection connection;
 
     public Connection getConnection() {
@@ -45,15 +46,24 @@ public class DataBaseConnection {
     }
 
     public void addUser(String name, String age, String email) {
-        DataBaseConnection dbc = new DataBaseConnection();
-
         try {
-            PreparedStatement statement = dbc.getConnection().prepareStatement("INSERT INTO users (name, age, email) VALUES ('"+name+"','"+age+"','"+email+"')");
-            statement.executeUpdate();
-            statement.close();
-        } catch (Exception e) {
+            PreparedStatement statement1 = dbc.getConnection().prepareStatement("INSERT INTO users (name, age, email) VALUES ('"+name+"','"+age+"','"+email+"')");
+            statement1.executeUpdate();
+            statement1.close();
+        } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("Wops! Что то пошло не так, и SQL запрос не сработал...");
         }
     }
 
+    public void delUser(int id) {
+        try {
+            PreparedStatement statement2 = dbc.getConnection().prepareStatement("DELETE FROM users WHERE id = '"+id+"';");
+            statement2.executeUpdate();
+            statement2.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Wops! Что то пошло не так, и SQL запрос не сработал...");
+        }
+    }
 }
