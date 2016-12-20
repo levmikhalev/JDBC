@@ -19,8 +19,6 @@ public class DataBaseConnection {
         try {
             connection = DriverManager.getConnection(HOST, USER, PASSWORD);
 
-            Statement statement = connection.createStatement();
-
             //добавление записи
             //statement.execute("INSERT  INTO users (name, age, email) VALUES ('Max', 21, 'max@gmail.com');");
 
@@ -45,4 +43,17 @@ public class DataBaseConnection {
             System.out.println("Не удалось загрузить драйвер!");
         }
     }
+
+    public void addUser(String name, String age, String email) {
+        DataBaseConnection dbc = new DataBaseConnection();
+
+        try {
+            PreparedStatement statement = dbc.getConnection().prepareStatement("INSERT INTO users (name, age, email) VALUES ('"+name+"','"+age+"','"+email+"')");
+            statement.executeUpdate();
+            statement.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }

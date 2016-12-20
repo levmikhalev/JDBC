@@ -22,18 +22,29 @@ public class AddServlet extends HttpServlet {
         RequestDispatcher dispatcher = req.getRequestDispatcher("MyPage.jsp");
         dispatcher.include(req, resp);
 
-        DataBaseConnection dbc = new DataBaseConnection();
         try {
             String name = req.getParameter("name");
-            String age = req.getParameter("age");
+            String age = String.valueOf(req.getParameter("age"));
             String email = req.getParameter("email");
 
-            Statement statement = dbc.getConnection().createStatement();
+            Class.forName("com.mysql.jdbc.Driver");
 
-            int i = statement.executeUpdate("INSERT INTO users VALUES ('"+name+"','"+age+"','"+email+"')");
-        } catch (SQLException e) {
+            //вариант работы с БД через объект и вызываемый на нём метод другого класса
+            DataBaseConnection dbc = new DataBaseConnection();
+            dbc.addUser(name, age, email);
+
+            //вариант работы с БД через объект другого класса
+            /*DataBaseConnection dbc = new DataBaseConnection();
+            PreparedStatement statement = dbc.getConnection().prepareStatement("INSERT INTO users (name, age, email) VALUES ('"+name+"','"+age+"','"+email+"')");
+            statement.executeUpdate();
+            statement.close();*/
+
+            //вариант работы с БД без создания объекта другого класса
+            /*Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "root");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO users (name, age, email) VALUES ('"+name+"','"+age+"','"+email+"')");
+            statement.executeUpdate();*/
+        } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Не удалось загрузить драйвер!");
         }
     }
 }
