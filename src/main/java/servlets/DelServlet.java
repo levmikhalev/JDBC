@@ -21,9 +21,9 @@ public class DelServlet extends HttpServlet {
         dispatcher.include(req, resp);
 
         try {
-            int id = Integer.parseInt(req.getParameter("id"));
-
             Class.forName("com.mysql.jdbc.Driver");
+
+            int id = Integer.parseInt(req.getParameter("id"));
 
             DataBaseConnection dbc = new DataBaseConnection();
             dbc.delUser(id);

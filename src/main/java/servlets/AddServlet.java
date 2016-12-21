@@ -12,8 +12,7 @@ import java.io.IOException;
 public class AddServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
@@ -22,11 +21,11 @@ public class AddServlet extends HttpServlet {
         dispatcher.include(req, resp);
 
         try {
+            Class.forName("com.mysql.jdbc.Driver");
+
             String name = req.getParameter("name");
             String age = String.valueOf(req.getParameter("age"));
             String email = req.getParameter("email");
-
-            Class.forName("com.mysql.jdbc.Driver");
 
             //вариант работы с БД через объект и вызываемый на нём метод другого класса
             DataBaseConnection dbc = new DataBaseConnection();
