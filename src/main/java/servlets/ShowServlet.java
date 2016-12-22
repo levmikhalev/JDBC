@@ -10,7 +10,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class ShowServlet extends HttpServlet {
 
@@ -20,9 +19,6 @@ public class ShowServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("MyPage.jsp");
-        dispatcher.include(req, resp);
-
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -30,34 +26,20 @@ public class ShowServlet extends HttpServlet {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT (id, name, age, email) FROM users");
 
-            ArrayList list = new ArrayList();
-
             while(resultSet.next()) {
 
-                String[] row = new String[4];
-                row[0] = resultSet.getString(1);
-                row[1] = resultSet.getString(2);
-                row[2] = resultSet.getString(3);
-                row[3] = resultSet.getString(4);
-                list.add(row) ;
+                resultSet.getString(1);
+                resultSet.getString(2);
+                resultSet.getString(3);
+                resultSet.getString(4);
 
-                /*String id = resultSet.getString(1);
-                String name = resultSet.getString(2);
-                String age = resultSet.getString(3);
-                String email = resultSet.getString(4);
-
-                req.setAttribute(id, "id1");
-                req.setAttribute(name, "name1");
-                req.setAttribute(age, "age1");
-                req.setAttribute(email, "email1");*/
             }
             statement.close();
             resultSet.close();
-            req.setAttribute("list", list);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
+        RequestDispatcher dispatcher = req.getRequestDispatcher("MyPage.jsp");
+        dispatcher.forward(req, resp);
     }
 }

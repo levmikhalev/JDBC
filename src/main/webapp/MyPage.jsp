@@ -25,18 +25,5 @@
         </tr>
     </form>
 </table>
-
-<table>
-    <form method="get" action="ShowServlet">
-    <c:forEach var="person" items="${users.users}">
-        <tr>
-            <td>${person.id1}</td>
-            <td>${person.name1}</td>
-            <td>${person.age1}</td>
-            <td>${person.email1}</td>
-        </tr>
-    </c:forEach>
-    </form>
-</table>
 </body>
 </html>
