@@ -43,6 +43,7 @@ public class DataBaseConnection {
         }
     }
 
+    //метод добавления записи в БД
     public void addUser(String name, String age, String email) {
         try {
             DataBaseConnection dbc = new DataBaseConnection();
@@ -55,6 +56,7 @@ public class DataBaseConnection {
         }
     }
 
+    //метод удаления записи из БД по ID записи
     public void delUser(int id) {
         try {
             DataBaseConnection dbc = new DataBaseConnection();
