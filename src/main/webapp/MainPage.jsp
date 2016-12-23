@@ -7,7 +7,7 @@
 <body>
 <table>
     <h1>Login.</h1>
-    <form method="get" action="AddServlet">
+    <form method="get" action="LoginServlet">
         <tr>Для выполнения входа введите логин и пароль:</tr>
         <tr>
             <td><p align="right">Логин:</p></td>
@@ -21,11 +21,7 @@
             <td><input type="submit" value="Войти"></td>
         </tr>
     </form>
-    <form method="get" action="Registration.jsp">
-        <tr>
-            <td><input type="submit" value="Регистрация"></td>
-        </tr>
-    </form>
 </table>
+<a href="Registration.jsp">Регистрация</a>
 </body>
 </html>

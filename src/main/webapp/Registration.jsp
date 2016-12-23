@@ -7,7 +7,7 @@
 <body>
 <table>
     <h1>Registration.</h1>
-    <form method="get" action="AddServlet">
+    <form method="get" action="RegServlet">
         <tr>Регистрация нового пользователя:</tr>
         <tr>
             <td><p align="right">Имя:</p></td>
@@ -26,5 +26,6 @@
         </tr>
     </form>
 </table>
+<a href="MainPage.jsp">Назад</a>
 </body>
 </html>
