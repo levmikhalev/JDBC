@@ -6,8 +6,9 @@
 </head>
 <body>
 <table>
+    <h1>Registration.</h1>
     <form method="get" action="AddServlet">
-        <tr>Введите данные:</tr>
+        <tr>Регистрация нового пользователя:</tr>
         <tr>
             <td><p align="right">Имя:</p></td>
             <td><input type="text" name="name"></td>
@@ -21,7 +22,7 @@
             <td><input type="text" name="email"></td>
         </tr>
         <tr>
-            <td><input type="submit" value="отправить"></td>
+            <td><input type="submit" value="Добавить"></td>
         </tr>
     </form>
 </table>
