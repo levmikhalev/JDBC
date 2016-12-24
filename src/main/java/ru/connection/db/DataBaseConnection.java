@@ -35,37 +35,39 @@ public class DataBaseConnection {
             statement.clearBatch();*/
 
             if (connection.isClosed()) {
-                System.out.println("Увы, подключение к БД уже закрыто :(");
+                System.out.println("Увы, подключение к БД уже закрыто.");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Не удалось загрузить драйвер!");
+            System.out.println("Не удалось загрузить JDBC драйвер!");
         }
     }
 
     //метод добавления записи в БД
     public void addUser(String name, String age, String email) {
         try {
+            String sql = "INSERT INTO users (name, age, email) VALUES ('"+name+"','"+age+"','"+email+"')";
             DataBaseConnection dbc = new DataBaseConnection();
-            PreparedStatement statement = dbc.getConnection().prepareStatement("INSERT INTO users (name, age, email) VALUES ('"+name+"','"+age+"','"+email+"')");
+            PreparedStatement statement = dbc.getConnection().prepareStatement(sql);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Wops! Что то пошло не так, и SQL запрос не сработал...");
+            System.out.println("Что-то пошло не так, и SQL запрос на добавление не сработал...");
         }
     }
 
     //метод удаления записи из БД по ID записи
     public void delUser(int id) {
         try {
+            String sql = "DELETE FROM users WHERE id = '"+id+"'";
             DataBaseConnection dbc = new DataBaseConnection();
-            PreparedStatement statement = dbc.getConnection().prepareStatement("DELETE FROM users WHERE id = '"+id+"';");
+            PreparedStatement statement = dbc.getConnection().prepareStatement(sql);
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            System.out.println("Wops! Что то пошло не так, и SQL запрос не сработал...");
+            System.out.println("Что-то пошло не так, и SQL запрос на удаление по ID не сработал...");
         }
     }
 }
