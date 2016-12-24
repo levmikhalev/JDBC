@@ -28,10 +28,10 @@ public class ShowServlet extends HttpServlet {
 
             while(resultSet.next()) {
 
-                resultSet.getString(1);
-                resultSet.getString(2);
-                resultSet.getString(3);
-                resultSet.getString(4);
+                System.out.println(resultSet.getString(1));
+                System.out.println(resultSet.getString(2));
+                System.out.println(resultSet.getString(3));
+                System.out.println(resultSet.getString(4));
 
             }
             statement.close();
@@ -39,7 +39,7 @@ public class ShowServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        RequestDispatcher dispatcher = req.getRequestDispatcher("MyPage.jsp");
+        RequestDispatcher dispatcher = req.getRequestDispatcher("ShowTable.jsp");
         dispatcher.forward(req, resp);
     }
 }

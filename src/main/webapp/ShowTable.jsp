@@ -5,5 +5,9 @@
 <head>
 </head>
 <body>
+    <form method="get" action="ShowServlet">
+        Для печати базы в консоль нажмите кнопку:<br>
+        <input type="submit" value="Войти">
+    </form>
 </body>
 </html>

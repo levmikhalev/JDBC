@@ -5,13 +5,23 @@
          version="3.0">
 
     <servlet>
-        <servlet-name>AddServlet</servlet-name>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>servlets.LoginServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegServlet</servlet-name>
         <servlet-class>servlets.RegServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>AddServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>RegServlet</servlet-name>
+        <url-pattern>/1</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -21,7 +31,7 @@
 
     <servlet-mapping>
         <servlet-name>ShowServlet</servlet-name>
-        <url-pattern>/1</url-pattern>
+        <url-pattern>/2</url-pattern>
     </servlet-mapping>
 
 </web-app>

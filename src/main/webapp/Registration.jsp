@@ -15,7 +15,7 @@
         </tr>
         <tr>
             <td><p align="right">Возраст:</p></td>
-            <td><input type="text" name="age"></td>
+            <td><input type="number" name="age"></td>
         </tr>
         <tr>
             <td><p align="right">E-mail:</p></td>
@@ -26,6 +26,6 @@
         </tr>
     </form>
 </table>
-<a href="MainPage.jsp">Назад</a>
+<a href="Login.jsp">Назад</a>
 </body>
 </html>

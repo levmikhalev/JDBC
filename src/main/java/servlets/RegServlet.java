@@ -17,9 +17,6 @@ public class RegServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("MainPage.jsp");
-        dispatcher.include(req, resp);
-
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
@@ -44,5 +41,8 @@ public class RegServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("Registration.jsp");
+        dispatcher.include(req, resp);
     }
 }
