@@ -16,8 +16,6 @@ public class LoginServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-
             String log = req.getParameter("login");
             String pas = req.getParameter("password");
 

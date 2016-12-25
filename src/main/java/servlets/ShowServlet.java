@@ -20,8 +20,6 @@ public class ShowServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "root");
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT (id, name, age, email) FROM users");

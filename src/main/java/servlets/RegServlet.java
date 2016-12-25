@@ -18,8 +18,6 @@ public class RegServlet extends HttpServlet {
         resp.setContentType("text/html;charset=utf-8");
 
         try {
-            Class.forName("com.mysql.jdbc.Driver");
-
             String name = req.getParameter("name");
             String age = String.valueOf(req.getParameter("age"));
             String email = req.getParameter("email");
