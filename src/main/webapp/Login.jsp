@@ -24,5 +24,4 @@
 </table>
 ${textA}<br>
 </body>
-<a href="Registration.jsp">Регистрация</a>
 </html>

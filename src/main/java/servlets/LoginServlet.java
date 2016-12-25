@@ -15,18 +15,16 @@ public class LoginServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("Login.jsp");
-        dispatcher.include(req, resp);
-
         try {
             Class.forName("com.mysql.jdbc.Driver");
 
             String log = req.getParameter("login");
             String pas = req.getParameter("password");
 
-            if(log.equals("admin") && pas.equals("admin"))
+            if("admin".equals(log) && "admin".equals(pas))
                 {
-                    resp.sendRedirect("ShowTable.jsp");
+                    resp.sendRedirect("Registration.jsp");
+
                 } else {
                 String varTextA = "Неправильный логин или пароль!";
                 req.setAttribute("textA", varTextA);
@@ -34,5 +32,8 @@ public class LoginServlet extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
         }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("Login.jsp");
+        dispatcher.include(req, resp);
     }
 }

@@ -1,7 +1,6 @@
 package servlets;
 
 import ru.connection.db.DataBaseConnection;
-import sun.rmi.server.Dispatcher;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,9 +16,6 @@ public class RegServlet extends HttpServlet {
 
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("Registration.jsp");
-        dispatcher.forward(req, resp);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -45,5 +41,8 @@ public class RegServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("Registration.jsp");
+        dispatcher.forward(req, resp);
     }
 }
