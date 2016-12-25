@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class RegServlet extends HttpServlet {
@@ -16,6 +17,13 @@ public class RegServlet extends HttpServlet {
 
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("Registration.jsp");
+        dispatcher.include(req, resp);
+
+        HttpSession session = req.getSession(false);
+        session.getAttribute("log");
+        session.getAttribute("log");
 
         try {
             String name = req.getParameter("name");
@@ -39,8 +47,5 @@ public class RegServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("Registration.jsp");
-        dispatcher.forward(req, resp);
     }
 }
