@@ -27,7 +27,10 @@ public class LoginServlet extends HttpServlet {
             if(log.equals("admin") && pas.equals("admin"))
                 {
                     resp.sendRedirect("ShowTable.jsp");
-                } else { resp.sendRedirect("BadLogin.jsp"); }
+                } else {
+                String varTextA = "Неправильный логин или пароль!";
+                req.setAttribute("textA", varTextA);
+            }
             } catch (Exception e) {
                 e.printStackTrace();
         }

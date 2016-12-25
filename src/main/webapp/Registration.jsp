@@ -26,6 +26,6 @@
         </tr>
     </form>
 </table>
-<a href="Login.jsp">Назад</a>
 </body>
+<a href="Login.jsp">Назад</a>
 </html>

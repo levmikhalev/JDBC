@@ -22,6 +22,7 @@
         </tr>
     </form>
 </table>
-<a href="Registration.jsp">Регистрация</a>
+${textA}<br>
 </body>
+<a href="Registration.jsp">Регистрация</a>
 </html>
